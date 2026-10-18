@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1: Progree Internship Announcement - Mohsin Ali Shah</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #0a66c2;
+      --primary-hover: #004182;
+      --accent: #38bdf8;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 760px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* LinkedIn Card Simulator */
+    .linkedin-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0a66c2, #38bdf8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    .author-info h3 {
+      font-size: 1.05rem;
+      color: #fff;
+    }
+
+    .author-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .post-body {
+      padding: 1.25rem;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .hashtags {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .tag-company {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .offer-letter-preview {
+      background: #090d16;
+      border: 2px dashed #334155;
+      border-radius: 8px;
+      margin: 1.25rem;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      position: relative;
+    }
+
+    .offer-letter-preview img {
+      max-width: 100%;
+      max-height: 480px;
+      border-radius: 6px;
+      display: none;
+    }
+
+    .file-input-label {
+      background: #1e293b;
+      border: 1px solid #475569;
+      color: #f1f5f9;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .file-input-label:hover {
+      background: #334155;
+    }
+
+    #fileUpload {
+      display: none;
+    }
+
+    .actions-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      padding: 1rem 1.25rem;
+      background: rgba(15, 23, 42, 0.4);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: #475569;
+    }
+
+    /* Checklist block */
+    .checklist-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .checklist-card h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .check-icon {
+      color: var(--success);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Progree Full Stack Internship</span>
+      <h1>Task 1: Professional LinkedIn Announcement</h1>
+      <p class="subtitle">Official acceptance announcement, learning goals & offer letter showcase.</p>
+    </header>
+
+    <div class="linkedin-card">
+      <div class="card-header">
+        <div class="avatar">MS</div>
+        <div class="author-info">
+          <h3>Mohsin Ali Shah</h3>
+          <p>Full Stack Developer | Aspiring Software Engineer</p>
+          <p style="font-size: 0.75rem; opacity: 0.7;">Just now • 🌐 Public</p>
+        </div>
+      </div>
+
+      <div class="post-body" id="postCaption">I am thrilled to announce that I have officially joined <span class="tag-company">@Progree</span> as a Full Stack Development Intern! 🚀
+
+Stepping into this role is an exciting milestone in my journey as a software developer. Over the course of this internship, I will be immersing myself in building robust, modern web applications, refining both frontend and backend skills, and working with scalable architectures.
+
+Key learning goals I am focusing on:
+• Architecting responsive, accessible, and high-performance user interfaces
+• Designing secure backend REST APIs and microservices with Node.js and Express
+• Mastering state management, persistent storage, and database design
+• Writing production-grade, maintainable code following best industry practices
+
+A huge thank you to the team at <span class="tag-company">@Progree</span> for this incredible opportunity. I am looking forward to collaborating, learning, and contributing to impactful real-world software solutions!
+
+<span class="hashtags">#fullstack #webdev #javascript #progree</span></div>
+
+      <div class="offer-letter-preview" id="previewArea">
+        <img id="letterImg" alt="Internship Offer Letter Preview">
+        <div id="placeholderText">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+            <circle cx="9" cy="9" r="2"/>
+            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+          </svg>
+          <p style="color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Official Offer Letter Document Preview</p>
+        </div>
+        <label for="fileUpload" class="file-input-label">📁 Select Offer Letter Image</label>
+        <input type="file" id="fileUpload" accept="image/*">
+      </div>
+
+      <div class="actions-bar">
+        <button class="btn btn-outline" id="copyBtn" onclick="copyCaption()">📋 Copy Caption</button>
+        <a class="btn btn-primary" href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">↗ Open LinkedIn to Post</a>
+      </div>
+    </div>
+
+    <div class="checklist-card">
+      <h4>Requirements Verification Checklist</h4>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> <strong>Internship Acceptance:</strong> Official acceptance announcement articulated clearly.</li>
+        <li><span class="check-icon">✓</span> <strong>Learning Goals:</strong> UI/UX architecture, backend API development, persistent state, clean code.</li>
+        <li><span class="check-icon">✓</span> <strong>Company Tag:</strong> Tagged Progree appropriately.</li>
+        <li><span class="check-icon">✓</span> <strong>Required Hashtags:</strong> Includes #fullstack #webdev #javascript #progree.</li>
+        <li><span class="check-icon">✓</span> <strong>Media Attachment:</strong> Offer letter preview and attachment workflow ready.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function copyCaption() {
+      const rawText = `I am thrilled to announce that I have officially joined Progree as a Full Stack Development Intern! 🚀\n\nStepping into this role is an exciting milestone in my journey as a software developer. Over the course of this internship, I will be immersing myself in building robust, modern web applications, refining both frontend and backend skills, and working with scalable architectures.\n\nKey learning goals I am focusing on:\n• Architecting responsive, accessible, and high-performance user interfaces\n• Designing secure backend REST APIs and microservices with Node.js and Express\n• Mastering state management, persistent storage, and database design\n• Writing production-grade, maintainable code following best industry practices\n\nA huge thank you to the team at Progree for this incredible opportunity. I am looking forward to collaborating, learning, and contributing to impactful real-world software solutions!\n\n#fullstack #webdev #javascript #progree`;
+      navigator.clipboard.writeText(rawText).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.innerText = '✓ Copied!';
+        setTimeout(() => {
+          btn.innerText = '📋 Copy Caption';
+        }, 2500);
+      });
+    }
+
+    const fileUpload = document.getElementById('fileUpload');
+    const letterImg = document.getElementById('letterImg');
+    const placeholderText = document.getElementById('placeholderText');
+
+    fileUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          letterImg.src = event.target.result;
+          letterImg.style.display = 'block';
+          placeholderText.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+</html>

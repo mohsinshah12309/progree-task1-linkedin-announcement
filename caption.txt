@@ -1,0 +1,13 @@
+I am thrilled to announce that I have officially joined Progree as a Full Stack Development Intern! 🚀
+
+Stepping into this role is an exciting milestone in my journey as a software developer. Over the course of this internship, I will be immersing myself in building robust, modern web applications, refining both frontend and backend skills, and working with scalable architectures.
+
+Key learning goals I am focusing on:
+• Architecting responsive, accessible, and high-performance user interfaces
+• Designing secure backend REST APIs and microservices with Node.js and Express
+• Mastering state management, persistent storage, and database design
+• Writing production-grade, maintainable code following best industry practices
+
+A huge thank you to the team at Progree for this incredible opportunity. I am looking forward to collaborating, learning, and contributing to impactful real-world software solutions!
+
+#fullstack #webdev #javascript #progree
